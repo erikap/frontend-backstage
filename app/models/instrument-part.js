@@ -1,4 +1,4 @@
-import Model, { belongsTo } from '@ember-data/model';
+import Model, { attr, belongsTo } from '@ember-data/model';
 
 export default class InstrumentPartModel extends Model {
   @attr uri
