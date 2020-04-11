@@ -10,6 +10,7 @@
     <Form::InstrumentPartSelect
       @value={{this.part}}
       @onChange={{this.selectInstrumentPart}}
+      @onCreate={{perform this.createInstrumentPart}}
       @instrument={{@model}}
     />
     <Input @value={{this.position}} @type="number" />

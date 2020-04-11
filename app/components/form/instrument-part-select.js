@@ -16,7 +16,7 @@ export default class FormInstrumentPartSelectComponent extends Component {
 
   @keepLatestTask
   *loadData() {
-    this.options = yield this.store.query('instrument-part', {
+    const parts = yield this.store.query('instrument-part', {
       'filter[instrument][:id:]': this.args.instrument.id,
       page: {
         size: 100,
@@ -24,5 +24,7 @@ export default class FormInstrumentPartSelectComponent extends Component {
       },
       sort: 'label'
     });
+
+    this.options = parts.toArray();
   }
 }

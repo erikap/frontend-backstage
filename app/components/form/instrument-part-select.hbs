@@ -1,7 +1,18 @@
-<PowerSelect
-  @options={{this.options}}
-  @selected={{@value}}
-  @onChange={{@onChange}}
-  as |part|>
-  {{part.label}}
-</PowerSelect>
+{{#if @onCreate}}
+  <PowerSelectWithCreate
+    @options={{this.options}}
+    @selected={{@value}}
+    @onChange={{@onChange}}
+    @onCreate={{@onCreate}}
+    as |part|>
+    {{part.label}}
+  </PowerSelectWithCreate>
+{{else}}
+  <PowerSelect
+    @options={{this.options}}
+    @selected={{@value}}
+    @onChange={{@onChange}}
+    as |part|>
+    {{part.label}}
+  </PowerSelect>
+{{/if}}
