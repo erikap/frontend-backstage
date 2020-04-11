@@ -1,0 +1,19 @@
+<div>
+  <h4>{{@model.label}}</h4>
+  <ul>
+    {{#each this.sortedTemplates as |template|}}
+      <li>[{{template.position}}] {{template.instrumentPart.label}} - SolSl - Bb</li>
+    {{/each}}
+  </ul>
+
+  <form>
+    <Form::InstrumentPartSelect
+      @value={{this.part}}
+      @onChange={{this.selectInstrumentPart}}
+      @instrument={{@model}}
+    />
+    <Input @value={{this.position}} @type="number" />
+    <button type="button" {{on "click" (perform this.addPartTemplate)}}>Toevoegen</button>
+  </form>
+</div>
+{{yield}}

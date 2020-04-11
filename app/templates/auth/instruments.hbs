@@ -2,14 +2,12 @@
 
 <form>
   <Input @value={{this.instrumentLabel}} placeholder="Trompet" />
-  <Input @value={{this.instrumentPosition}} type="number" />
-  <button type="submit" {{on "click" (perform this.addInstrument)}}>Toevoegen</button>
+  <Input @value={{this.instrumentPosition}} @type="number" />
+  <button type="button" {{on "click" (perform this.addInstrument)}}>Toevoegen</button>
 </form>
 
-<ul>
 {{#each this.model as |instrument|}}
-  <li>{{instrument.label}}</li>
+  <Instrument::Card @model={{instrument}} />
 {{/each}}
-</ul>
 
 {{outlet}}

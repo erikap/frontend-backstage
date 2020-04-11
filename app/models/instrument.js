@@ -5,5 +5,6 @@ export default class InstrumentModel extends Model {
   @attr label
   @attr('number') position
 
-  @hasMany('instrument-part') instrumentParts
+  @hasMany('instrument-part') parts
+  @hasMany('score-part-template') templates
 }

@@ -8,7 +8,7 @@ export default class AuthInstrumentsRoute extends Route {
         size: 20,
         number: 0
       },
-      sort: 'label'
+      sort: 'position'
     });
   }
 
