@@ -1,15 +1,15 @@
-{{#if @onCreate}}
+{{#if @allowCreate}}
   <PowerSelectWithCreate
-    @options={{this.options}}
+    @options={{this.sortedOptions}}
     @selected={{@value}}
     @onChange={{@onChange}}
-    @onCreate={{@onCreate}}
+    @onCreate={{perform this.createNew}}
     as |part|>
     {{part.label}}
   </PowerSelectWithCreate>
 {{else}}
   <PowerSelect
-    @options={{this.options}}
+    @options={{this.sortedOptions}}
     @selected={{@value}}
     @onChange={{@onChange}}
     as |part|>

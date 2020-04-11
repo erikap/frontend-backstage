@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { inject as service } from '@ember/service';
-import { keepLatestTask } from 'ember-concurrency-decorators';
+import { keepLatestTask, task } from 'ember-concurrency-decorators';
 import { tracked } from '@glimmer/tracking';
 
 export default class FormInstrumentPartSelectComponent extends Component {
@@ -12,6 +12,10 @@ export default class FormInstrumentPartSelectComponent extends Component {
   constructor() {
     super(...arguments);
     this.loadData.perform();
+  }
+
+  get sortedOptions() {
+    return this.options.sortBy('label');
   }
 
   @keepLatestTask
@@ -27,4 +31,16 @@ export default class FormInstrumentPartSelectComponent extends Component {
 
     this.options = parts.toArray();
   }
+
+  @task
+  *createNew(label) {
+    const part = this.store.createRecord('instrument-part', {
+      label: label,
+      instrument: this.args.instrument
+    });
+    yield part.save();
+    this.options.pushObject(part);
+    this.args.onChange(part);
+  }
+
 }

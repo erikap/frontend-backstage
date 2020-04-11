@@ -28,15 +28,6 @@ export default class InstrumentCardComponent extends Component {
     event.preventDefault();
   }
 
-  @task
-  *createInstrumentPart(label) {
-    const part = this.store.createRecord('instrument-part', {
-      label: label
-    });
-    yield part.save();
-    this.part = part;
-  }
-
   @action
   selectInstrumentPart(part) {
     this.part = part;

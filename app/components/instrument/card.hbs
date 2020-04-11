@@ -10,8 +10,8 @@
     <Form::InstrumentPartSelect
       @value={{this.part}}
       @onChange={{this.selectInstrumentPart}}
-      @onCreate={{perform this.createInstrumentPart}}
       @instrument={{@model}}
+      @allowCreate={{true}}
     />
     <Input @value={{this.position}} @type="number" />
     <button type="button" {{on "click" (perform this.addPartTemplate)}}>Toevoegen</button>
