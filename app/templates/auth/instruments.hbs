@@ -1,9 +1,13 @@
-<h2>Instruments</h2>
-
-<form>
-  <Input @value={{this.instrumentLabel}} placeholder="Trompet" />
-  <Input @value={{this.instrumentPosition}} @type="number" />
-  <button type="button" {{on "click" (perform this.addInstrument)}}>Toevoegen</button>
+<form class="bg-white shadow sm:rounded-lg my-8 px-6 py-8">
+  <div class="w-full max-w-sm">
+    <div class="flex items-center">
+      <Input @value={{this.instrumentLabel}} placeholder="Instrument"
+        class="px-4 py-2 w-full bg-gray-200 appearance-none border-b-2 border-gray-200 rounded text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" />
+      <button type="button" {{on "click" (perform this.addInstrument)}} class="flex-shrink-0 mx-4 px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-purple-600 hover:bg-purple-500 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-purple-700 transition duration-150 ease-in-out">
+        Toevoegen
+      </button>
+    </div>
+  </div>
 </form>
 
 {{#each this.model as |instrument|}}

@@ -1,20 +1,56 @@
-<div>
-  <h4>{{@model.label}}</h4>
-  <ul>
+<div class="bg-white shadow overflow-hidden sm:rounded-lg my-8">
+  <div class="px-4 py-5 border-b border-gray-200 sm:px-6 flex items-center justify-between">
+    <h3 class="w-0 flex-1 text-lg leading-6 font-medium text-gray-900 uppercase">
+      {{@model.label}}
+    </h3>
+    <div class="flex-shrink-0">
+      drag
+    </div>
+  </div>
+  <ul class="border border-gray-200">
     {{#each this.sortedTemplates as |template|}}
-      <li>[{{template.position}}] {{template.instrumentPart.label}} - SolSl - Bb</li>
+      <li class="border-t border-gray-200 pl-4 pr-4 py-3 flex items-center justify-between text-base leading-5">
+        <div class="w-0 flex-1">
+          <span>{{template.instrumentPart.label}}</span>
+          <span class="ml-4 text-gray-500">Solsleutel</span>
+          <span class="ml-4 text-gray-500">Bb</span>
+        </div>
+        <div class="flex-shrink-0">
+          drag
+        </div>
+      </li>
+    {{else}}
+      <li class="border-t border-gray-200 pl-4 pr-4 py-6 text-base leading-5">
+        <div class="text-gray-500 text-center">Nog geen stemmen toegevoegd</div>
+      </li>
     {{/each}}
   </ul>
-
-  <form>
-    <Form::InstrumentPartSelect
-      @value={{this.part}}
-      @onChange={{this.selectInstrumentPart}}
-      @instrument={{@model}}
-      @allowCreate={{true}}
-    />
-    <Input @value={{this.position}} @type="number" />
-    <button type="button" {{on "click" (perform this.addPartTemplate)}}>Toevoegen</button>
-  </form>
+  <div class="border-t border-gray-200 pl-3 pr-4 py-6">
+    <form class="w-full max-w-4xl">
+      <div class="flex flex-wrap">
+        <div class="w-full md:w-2/5 mb-6 md:mb-0">
+          <Form::InstrumentPartSelect
+            @value={{this.part}}
+            @onChange={{this.selectInstrumentPart}}
+            @instrument={{@model}}
+            @allowCreate={{true}}
+          />
+        </div>
+        <div class="w-full md:w-2/5 mb-6 md:mb-0 flex flex-wrap -mx-3 md:ml-3">
+          <div class="w-1/2 px-3">
+            <Input @value={{this.clef}} placeholder="Sleutel"
+              class="px-4 py-2 w-full bg-gray-200 appearance-none rounded text-gray-700 focus:outline-none focus:bg-white focus:border-b-purple-500" />
+          </div>
+          <div class="w-1/2 px-3">
+            <Input @value={{this.key}} placeholder="Toonaard"
+              class="px-4 py-2 w-full bg-gray-200 appearance-none rounded text-gray-700 focus:outline-none focus:bg-white focus:border-b-purple-500" />
+          </div>
+        </div>
+        <button type="button" {{on "click" (perform this.addPartTemplate)}} class="md:ml-6 px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-purple-600 hover:bg-purple-500 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-purple-700 transition duration-150 ease-in-out">
+          Toevoegen
+        </button>
+      </div>
+    </form>
+  </div>
 </div>
 {{yield}}
