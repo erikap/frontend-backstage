@@ -38,6 +38,7 @@
     "ember-concurrency": "^1.1.7",
     "ember-concurrency-decorators": "^1.0.0",
     "ember-data": "~3.16.0",
+    "ember-drag-sort": "^2.0.0-beta.2",
     "ember-export-application-global": "^2.0.1",
     "ember-fetch": "^7.0.1",
     "ember-load-initializers": "^2.1.1",
@@ -64,5 +65,8 @@
   },
   "ember": {
     "edition": "octane"
+  },
+  "dependencies": {
+    "babel-plugin-transform-object-rest-spread": "^6.26.0"
   }
 }
