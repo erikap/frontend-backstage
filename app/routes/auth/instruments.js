@@ -5,7 +5,7 @@ export default class AuthInstrumentsRoute extends Route {
   model() {
     return this.store.query('instrument', {
       page: {
-        size: 20,
+        size: 100,
         number: 0
       },
       sort: 'position'

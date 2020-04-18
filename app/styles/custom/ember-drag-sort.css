@@ -1,0 +1,28 @@
+.dragSortList-parts .dragSortItem.-placeholderBefore:before,
+.dragSortList-parts .dragSortItem.-placeholderAfter:before {
+  @apply leading-5 rounded-full h-5 w-5 ml-2 bg-purple-200;
+  content: '';
+}
+
+.dragSortList-parts .dragSortItem.-placeholderBefore {
+  @apply pt-5;
+}
+
+.dragSortList-parts .dragSortItem.-placeholderAfter {
+  @apply pb-5;
+}
+
+
+.dragSortList-instruments .dragSortItem.-placeholderBefore:before,
+.dragSortList-instruments .dragSortItem.-placeholderAfter:before {
+  @apply h-5 w-full bg-purple-200;
+  content: '';
+}
+
+.dragSortList-instruments .dragSortItem.-placeholderBefore {
+  @apply pt-5;
+}
+
+.dragSortList-instruments .dragSortItem.-placeholderAfter {
+  @apply pb-5;
+}

@@ -1,2 +1,2 @@
 @import "tailwindcss/tailwind";
-@import "custom";
+@import "custom/ember-drag-sort";

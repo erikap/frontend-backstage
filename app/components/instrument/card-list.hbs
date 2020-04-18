@@ -1,0 +1,12 @@
+<div class="dragSortList-instruments" {{did-update (perform this.loadData) @model}}>
+  <DragSortList
+    @items={{this.sortedInstruments}}
+    @dragEndAction={{perform this.sortInstruments}}
+    @group="instruments"
+    @handle="[draggable]"
+    @draggingEnabled={{this.hasMultipleItems}} as |instrument|>
+    <Instrument::Card @model={{instrument}} />
+  </DragSortList>
+</div>
+
+{{yield}}
