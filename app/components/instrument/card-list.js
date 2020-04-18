@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { task, keepLatestTask } from 'ember-concurrency-decorators';
 import { tracked } from '@glimmer/tracking';
+import calculatePosition from '../../utils/calculate-position';
 
 export default class InstrumentCardListComponent extends Component {
   @tracked instruments = []
@@ -29,15 +30,9 @@ export default class InstrumentCardListComponent extends Component {
 
     sourceList.removeAt(sourceIndex);
     targetList.insertAt(targetIndex, draggedItem);
-
     this.instruments = targetList;
 
-    const prevPosition = targetIndex > 0 ? this.instruments[targetIndex - 1].position : 0;
-    const lastIdx = this.instruments.length - 1;
-    const nextPosition = targetIndex < lastIdx ? this.instruments[targetIndex + 1].position : this.instruments[lastIdx - 1].position + 2;
-    const position = (prevPosition + nextPosition)/2;
-
-    draggedItem.position = position;
+    draggedItem.position = calculatePosition(this.instruments, targetIndex);
     yield draggedItem.save();
   }
 
