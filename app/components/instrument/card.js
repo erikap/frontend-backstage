@@ -21,6 +21,10 @@ export default class InstrumentCardComponent extends Component {
     return this.templates.sortBy('position');
   }
 
+  get hasMultipleItems() {
+    return this.templates.length > 1;
+  }
+
   @task
   *loadData() {
     const templates = yield this.args.model.templates;

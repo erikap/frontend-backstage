@@ -7,25 +7,37 @@
       drag
     </div>
   </div>
-  <ul class="border border-gray-200">
-    <DragSortList @items={{this.templates}} @dragEndAction={{perform this.sortTemplates}} as |template|>
-      <li class="border-t border-gray-200 pl-4 pr-4 py-3 flex items-center justify-between text-base leading-5">
-        <div class="w-0 flex-1">
-          <span>{{template.instrumentPart.label}}</span>
-          <span class="ml-4 text-gray-500">Solsleutel</span>
-          <span class="ml-4 text-gray-500">Bb</span>
+  <div class="dragSortList-parts border border-gray-200">
+    {{#if this.templates}}
+      <DragSortList
+        @items={{this.templates}}
+        @dragEndAction={{perform this.sortTemplates}}
+        @group={{@model.label}}
+        @draggingEnabled={{this.hasMultipleItems}}
+        @tagName={{"ul"}} @childTagName={{"li"}} as |template|>
+        <div class="border-t border-gray-200 text-base leading-5">
+          <div class="pl-4 pr-4 py-3 flex items-center justify-between">
+            <div class="w-0 flex-1">
+              <span>{{template.instrumentPart.label}}</span>
+              <span class="ml-4 text-gray-500">Solsleutel</span>
+              <span class="ml-4 text-gray-500">Bb</span>
+            </div>
+            {{#if this.hasMultipleItems}}
+              <div class="flex-shrink-0">
+                <svg viewBox="0 0 20 20" class="h-4 w-4 fill-current text-gray-500">
+                  <path d="M0,3 L20,3 L20,5 L0,5 L0,3 Z M0,7 L20,7 L20,9 L0,9 L0,7 Z M0,11 L20,11 L20,13 L0,13 L0,11 Z M0,15 L20,15 L20,17 L0,17 L0,15 Z"></path>
+						    </svg>
+              </div>
+            {{/if}}
+          </div>
         </div>
-        <div class="flex-shrink-0">
-          drag
-        </div>
-      </li>
-    </DragSortList>
-    {{#unless this.templates}}
-      <li class="border-t border-gray-200 pl-4 pr-4 py-6 text-base leading-5">
+      </DragSortList>
+    {{else}}
+      <div class="border-t border-gray-200 pl-4 pr-4 py-6 text-base leading-5">
         <div class="text-gray-500 text-center">Nog geen stemmen toegevoegd</div>
-      </li>
-    {{/unless}}
-  </ul>
+      </div>
+    {{/if}}
+  </div>
   <div class="border-t border-gray-200 pl-3 pr-4 py-6">
     <form class="w-full max-w-4xl">
       <div class="flex flex-wrap">
