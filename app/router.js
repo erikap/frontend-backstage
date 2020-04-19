@@ -10,4 +10,5 @@ Router.map(function() {
   this.route('auth', { path: '/' }, function() {
     this.route('instruments');
   });
+  this.route('styleguide');
 });
