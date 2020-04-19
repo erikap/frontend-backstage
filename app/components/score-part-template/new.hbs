@@ -1,0 +1,26 @@
+<form class="w-full max-w-4xl">
+  <div class="flex flex-wrap">
+    <div class="w-full md:w-2/5 mb-6 md:mb-0">
+      <Form::InstrumentPartSelect
+        @value={{this.part}}
+        @onChange={{this.selectInstrumentPart}}
+        @instrument={{@instrument}}
+        @allowCreate={{true}}
+      />
+    </div>
+    <div class="w-full md:w-2/5 mb-6 md:mb-0 flex flex-wrap -mx-3 md:ml-3">
+      <div class="w-1/2 px-3">
+        <Input @value={{this.clef}} placeholder="Sleutel"
+          class="px-4 py-2 w-full bg-gray-200 appearance-none rounded text-gray-700 focus:outline-none focus:bg-white focus:border-b-purple-500" />
+      </div>
+      <div class="w-1/2 px-3">
+        <Input @value={{this.key}} placeholder="Toonaard"
+          class="px-4 py-2 w-full bg-gray-200 appearance-none rounded text-gray-700 focus:outline-none focus:bg-white focus:border-b-purple-500" />
+      </div>
+    </div>
+    <button type="button" {{on "click" (perform this.addPartTemplate)}} class="md:ml-6 px-4 py-2 border border-transparent text-sm leading-5 font-medium rounded-md text-white bg-purple-600 hover:bg-purple-500 focus:outline-none focus:shadow-outline-purple focus:border-purple-700 active:bg-purple-700 transition duration-150 ease-in-out">
+      Toevoegen
+    </button>
+  </div>
+</form>
+{{yield}}
