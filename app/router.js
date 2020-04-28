@@ -9,6 +9,11 @@ export default class Router extends EmberRouter {
 Router.map(function() {
   this.route('auth', { path: '/' }, function() {
     this.route('instruments');
+
+    this.route('system', function() {
+      this.route('keys');
+      this.route('clefs');
+    });
   });
   this.route('styleguide');
 });

@@ -1,0 +1,6 @@
+{{#each this.model as |key|}}
+  <div>
+    [{{key.position}}] {{key.label}} ({{key.notation}})
+  </div>
+{{/each}}
+{{outlet}}
