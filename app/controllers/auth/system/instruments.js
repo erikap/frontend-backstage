@@ -2,9 +2,9 @@ import Controller from '@ember/controller';
 import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { task } from 'ember-concurrency-decorators';
-import calculatePosition from '../../utils/calculate-position';
+import calculatePosition from '../../../utils/calculate-position';
 
-export default class AuthInstrumentsController extends Controller {
+export default class AuthSystemInstrumentsController extends Controller {
   @service store
 
   @tracked instrumentLabel
