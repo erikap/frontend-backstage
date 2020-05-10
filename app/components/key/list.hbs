@@ -1,0 +1,22 @@
+<div class="bg-white shadow overflow-hidden sm:rounded-lg my-8">
+  <DragSortList
+    @items={{this.keys}}
+    @dragEndAction={{perform this.sortKeys}}
+    @group="keys"
+    @draggingEnabled={{this.hasMultipleItems}}
+    @tagName={{"ul"}} @childTagName={{"li"}} as |key|>
+    <div class="border-t border-gray-200 text-base leading-5">
+      <div class="pl-4 pr-4 py-3 flex items-center justify-start">
+        <div class="flex-shrink-0">
+          <svg viewBox="0 0 20 20" class="h-4 w-4 fill-current text-gray-500">
+            <path d="M0,3 L20,3 L20,5 L0,5 L0,3 Z M0,7 L20,7 L20,9 L0,9 L0,7 Z M0,11 L20,11 L20,13 L0,13 L0,11 Z M0,15 L20,15 L20,17 L0,17 L0,15 Z"></path>
+          </svg>
+        </div>
+        <div class="w-0 flex-1 ml-4">
+          <span>{{key.label}}</span>
+          <span class="ml-2 text-gray-500">({{key.notation}})</span>
+        </div>
+      </div>
+    </div>
+  </DragSortList>
+</div>

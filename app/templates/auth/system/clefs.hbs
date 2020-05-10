@@ -1,5 +1,2 @@
-{{#each this.model as |clef|}}
-  <div>
-    [{{clef.position}}] {{clef.label}} ({{clef.notation}})
-  </div>
-{{/each}}
+<Clef::List @model={{this.model}} />
+{{outlet}}
