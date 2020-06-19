@@ -1,1 +1,18 @@
+<label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="clef-select">
+  {{this.label}}
+</label>
+<div class="relative">
+  <select id="clef-select" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-purple-500" {{on "change" this.selectOption}}>
+    <option value="0" selected={{eq "0" this.selectedId}}></option>
+    {{#each this.options as |clef|}}
+      <option value={{clef.id}} selected={{eq clef.id this.selectedId}}>{{clef.label}} ({{clef.notation}})</option>
+    {{/each}}
+  </select>
+  <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+      <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+    </svg>
+  </div>
+</div>
+
 {{yield}}

@@ -7,7 +7,6 @@ export default class FormInstrumentPartSelectComponent extends Component {
   @service store
 
   @tracked options = []
-  @tracked selected = null
 
   constructor() {
     super(...arguments);
@@ -16,6 +15,10 @@ export default class FormInstrumentPartSelectComponent extends Component {
 
   get sortedOptions() {
     return this.options.sortBy('label');
+  }
+
+  get label() {
+    return this.args.label || "Stem";
   }
 
   @keepLatestTask
