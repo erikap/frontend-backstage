@@ -1,16 +1,16 @@
 <nav>
   <div class="ml-4 sm:ml-0 my-4 mb-6 sm:inline-block">
-    <LinkTo @route="auth.system.instruments" class="text-base tracking-wide font-medium uppercase text-gray-600 pb-2 border-b-0 border-purple-700">
+    <LinkTo @route="auth.system.instruments" class="text-base tracking-wide font-medium uppercase pb-2 {{if this.isActiveInstruments "border-b-2 text-purple-700" "border-b-0 text-gray-600"}} border-purple-700">
       Instrumenten
     </LinkTo>
   </div>
   <div class="ml-4 sm:ml-8 mt-4 mb-6 sm:inline-block">
-    <LinkTo @route="auth.system.clefs" class="text-base tracking-wide font-medium uppercase text-purple-700 pb-2 border-b-2 border-purple-700">
+    <LinkTo @route="auth.system.clefs" class="text-base tracking-wide font-medium uppercase pb-2 {{if this.isActiveClefs "border-b-2 text-purple-700" "border-b-0 text-gray-600"}} border-purple-700">
       Sleutels
     </LinkTo>
   </div>
   <div class="ml-4 sm:ml-8 my-4 mb-6 sm:inline-block">
-    <LinkTo @route="auth.system.keys" class="text-base tracking-wide font-medium uppercase text-gray-600 pb-2 border-b-0 border-purple-700">
+    <LinkTo @route="auth.system.keys" class="text-base tracking-wide font-medium uppercase pb-2 {{if this.isActiveKeys "border-b-2 text-purple-700" "border-b-0 text-gray-600"}} border-purple-700">
       Toonaarden
     </LinkTo>
   </div>
