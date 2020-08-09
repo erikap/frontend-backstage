@@ -2,7 +2,7 @@
   {{this.label}}
 </label>
 <div class="relative">
-  <select id="clef-select" class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-purple-500" {{on "change" this.selectOption}}>
+  <select id={{this.selectInputId}} class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-purple-500" {{on "change" this.selectOption}}>
     <option value="0" selected={{eq "0" this.selectedId}}></option>
     {{#each this.options as |clef|}}
       <option value={{clef.id}} selected={{eq clef.id this.selectedId}}>{{clef.label}} ({{clef.notation}})</option>

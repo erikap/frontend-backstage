@@ -3,12 +3,15 @@ import { inject as service } from '@ember/service';
 import { keepLatestTask } from 'ember-concurrency-decorators';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 export default class FormClefSelectComponent extends Component {
-  @service store
+  @service store;
 
-  @tracked options = []
-  @tracked selectedId
+  @tracked options = [];
+  @tracked selectedId;
+
+  selectInputId = 'clef-select-' + guidFor(this);
 
   constructor() {
     super(...arguments);

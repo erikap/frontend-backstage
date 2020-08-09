@@ -3,12 +3,15 @@ import { inject as service } from '@ember/service';
 import { keepLatestTask } from 'ember-concurrency-decorators';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 export default class FormKeySelectComponent extends Component {
   @service store
 
   @tracked options = []
   @tracked selectedId
+
+  selectInputId = 'key-select-' + guidFor(this);
 
   constructor() {
     super(...arguments);
