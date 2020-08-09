@@ -41,15 +41,19 @@
     {{/if}}
   </div>
 
-  <div class="border-t border-gray-200 pl-3 pr-4 py-6">
-    <ScorePartTemplate::New @instrument={{@model}} @onSave={{this.addNewTemplate}} />
-  </div>
-
-  <div class="border-t border-gray-200 pl-3 pr-4 py-6 text-right">
-    <button type="button" {{on "click" (fn (mut this.showCreateForm) true)}} class="flex-shrink-0 mx-4 px-4 py-2 border border-purple-600 text-sm leading-5 font-medium rounded-md text-purple-600 bg-white hover:border-purple-500 hover:text-purple-500 focus:outline-none focus:border-purple-700 focus:text-purple-700 active:bg-purple-200 transition duration-150 ease-in-out">
-      Nieuwe stem
-    </button>
-  </div>
-
+  {{#if this.showCreateForm}}
+    <div class="border-t border-gray-200 pl-3 pr-4 py-6">
+      <ScorePartTemplate::New
+        @instrument={{@model}}
+        @onSave={{this.addNewTemplate}}
+        @onCancel={{fn (mut this.showCreateForm) false}} />
+    </div>
+  {{else}}
+    <div class="border-t border-gray-200 pl-3 pr-4 py-6 text-right">
+      <button type="button" {{on "click" (fn (mut this.showCreateForm) true)}} class="flex-shrink-0 mx-4 px-4 py-2 border border-purple-600 text-sm leading-5 font-medium rounded-md text-purple-600 bg-white hover:border-purple-500 hover:text-purple-500 focus:outline-none focus:border-purple-700 focus:text-purple-700 active:bg-purple-200 transition duration-150 ease-in-out">
+        Nieuwe stem
+      </button>
+    </div>
+  {{/if}}
 </div>
 {{yield}}
